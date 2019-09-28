@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>BINOMICA</title>
+    <!-- for-mobile-apps -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script type="application/x-javascript">
+        addEventListener("load", function() {
+            setTimeout(hideURLbar, 0);
+        }, false);
+
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+    </script>
+    <!-- //for-mobile-apps -->
+    <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <!-- js -->
+    <script src="js/jquery-1.11.1.min.js"></script>
+    <!-- //js -->
+    <!-- start-smoth-scrolling -->
+    <script type="text/javascript" src="js/move-top.js"></script>
+    <script type="text/javascript" src="js/easing.js"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function($) {
+            $(".scroll").click(function(event) {
+                event.preventDefault();
+                $('html,body').animate({
+                    scrollTop: $(this.hash).offset().top
+                }, 1000);
+            });
+        });
+    </script>
+    <!-- start-smoth-scrolling -->
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,700,900' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+    <!-- header -->
+    <div class="header">
+        <div class="container">
+            <nav class="navbar navbar-default">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <div class="logo">
+                        <a class="navbar-brand" href="index.html">BINOMICA</a>
+                    </div>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
+                    <nav class="cl-effect-5" id="cl-effect-5">
+                        <ul class="nav navbar-nav">
+                            <li><a href="index.html" class="active">Главная</a></li>
+                            <li><a href="select.html"><span data-hover="Личный кабинет">Личный кабинет</span></a></li>
+                            <li><a href="about_team.html"><span data-hover="О команде">О команде</span></a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <!-- /.navbar-collapse -->
+            </nav>
+        </div>
+    </div>
+    <!-- header -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.js" integrity="sha256-qSIshlknROr4J8GMHRlW3fGKrPki733tLq+qeMCR05Q=" crossorigin="anonymous"></script>
+
+    <div class="container">
+        <div class="grid_3 grid_5">
+            <ol class="breadcrumb">
+                <li><a href="#">Регион</a></li>
+                <li><a href="#">Москва</a></li>
+                <li class="active">Вывод результата</li>
+            </ol>
+        </div>
+
+                <div class="alert alert-success" role="alert">
+                    <strong>Успех!</strong> Данные успешно загружены.
+                </div>
+
+
+                    <div class="grid_3 grid_5">
+                <h3 class="bars">"Городская клиническая больница имени М.П. Кончаловского, филиал "Перинатальный центр". Москва, Зеленоград, ул. Александровка, д. 8, Москва, 124617"</h3>
+                <div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
+                    <ul id="myTab" class="nav nav-tabs" role="tablist">
+                        <li role="presentation" class="active"><a href="#home" id="home-tab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true">2018</a></li>
+                        <li role="presentation"><a href="#profile" role="tab" id="profile-tab" data-toggle="tab" aria-controls="profile">2019</a></li>
+                    </ul>
+                    <div id="myTabContent" class="tab-content">
+                        <div role="tabpanel" class="tab-pane fade in active" id="home" aria-labelledby="home-tab">
+                            <table class="table">
+                                <tr><td><canvas id="myChart"></canvas></td><td><canvas id="myChart2"></canvas></td></tr>
+                                <tr><td><canvas id="myChart4"></canvas></td><td><canvas id="myChart3"></canvas></td></tr>
+                            </table>
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade" id="profile" aria-labelledby="profile-tab">
+                            <p>Статистические данные отстуствуют</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+
+    <script>
+        var ctx = document.getElementById('myChart').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['январь', 'февраль', 'март', 'апрель', 'май', 'июнь', 'июль', 'август', 'сентябрь' , 'октябрь' , 'ноябрь', 'декабрь'],
+                datasets: [{
+                    label: 'Количество обращений',
+                    data: [190, 69, 37, 95, 50, 100, 45, 43, 45, 67, 11, 45],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.8)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+    </script>
+
+    <script>
+        var ctx = document.getElementById('myChart2').getContext('2d');
+        var myChart2 = new Chart(ctx, {
+            type: 'radar',
+            data: {
+                labels: ['Количество направлений', 'Количество госпитализаций', 'Количество родившихся детей', 'Смертность младенцев', 'Смертность рожениц'],
+                datasets: [{
+                    label: 'Сводный показатель за январь',
+                    data: [190, 130, 130, 5, 3],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: false
+                        }
+                    }]
+                }
+            }
+        });
+    </script>
+
+    <script>
+        var ctx = document.getElementById('myChart3').getContext('2d');
+        var myChart3 = new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: ['Количество направлений за год', 'Количество госпитализаций за год', 'Количество консультаций за год'],
+                datasets: [{
+                    label: 'Количество госпитализаций',
+                    data: [1500, 1200, 2000],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(0, 255, 0, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+        });
+    </script>
+
+    <script>
+        var ctx = document.getElementById('myChart4').getContext('2d');
+        var myChart4 = new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Количество направлений за год', 'Количество госпитализаций за год', 'Количество родившихся детей за год', 'Смертность младенцев за год', 'Смертность рожениц за год'],
+                datasets: [{
+                    label: '# of Votes',
+                    data: [1500, 1200, 1300, 95, 50],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+        });
+    </script>
+
+<hr>
+    <div class="container">
+        <div class="progress">
+            <div class="progress-bar progress-bar-success" style="width: 30%"></div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="col-md-8 history-grid-left">
+            <h3>Анализ данных и рекомендованное решение</h3>
+        </div>
+        <div class="bs-docs-example">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Имя эксперта</th>
+                        <th>Замечания эксперта</th>
+                        <th>Решение</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    </div>
+    </div>
+
+<hr>
+
+    <!-- history -->
+    <div class="history">
+        <div class="container">
+            <div class="history-grids">
+                <div class="col-md-6 history-grid-left">
+                    <h3>История запроса</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vitae eros eget tellus tristique bibendum. Donec rutrum sed sem quis venenatis.</p>
+                    <img src="images/6.jpg" alt=" " class="img-responsive" />
+                </div>
+                <div class="col-md-6 history-grid-right">
+                    <h3>Эксперты</h3>
+                    <div class="history-grid-right-grids">
+                        <div class="about-bottom-grid-right-grid">
+                            <div class="about-bottom-grid-right-grdl">
+                                <img src="images/10.jpg" alt=" " class="img-responsive" />
+                            </div>
+                            <div class="about-bottom-grid-right-grdr">
+                                <p><span>N</span>eque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi.</p>
+                            </div>
+                            <div class="clearfix"> </div>
+                        </div>
+                        <div class="about-bottom-grid-right-grid">
+                            <div class="about-bottom-grid-right-grdl">
+                                <img src="images/11.jpg" alt=" " class="img-responsive" />
+                            </div>
+                            <div class="about-bottom-grid-right-grdr">
+                                <p><span>R</span>eque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi.</p>
+                            </div>
+                            <div class="clearfix"> </div>
+                        </div>
+                        <div class="about-bottom-grid-right-grid">
+                            <div class="about-bottom-grid-right-grdl">
+                                <img src="images/12.jpg" alt=" " class="img-responsive" />
+                            </div>
+                            <div class="about-bottom-grid-right-grdr">
+                                <p><span>S</span>eque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi.</p>
+                            </div>
+                            <div class="clearfix"> </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+
+
+<div class="container">
+                <div class="col-md-6">
+                    <nav>
+                        <ul class="pagination pagination-lg">
+                            <li><a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
+                            <li><a href="#">1</a></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#">..</a></li>
+                            <li><a href="#">5</a></li>
+                            <li><a href="#">6</a></li>
+                            <li><a href="#">7</a></li>
+                            <li><a href="#" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+    </div>
+    <!-- //history -->
+    <!-- footer -->
+    <div class="footer">
+        <div class="container">
+            <div class="footer-copy">
+                <p>Цифровой прорыв. BINOMICA. &copy 2019</p>
+                <script>
+                    $(function() {
+                        $('[data-toggle="tooltip"]').tooltip()
+                    })
+                </script>
+            </div>
+        </div>
+    </div>
+    <!-- //footer -->
+    <!-- here stars scrolling icon -->
+    <script type="text/javascript">
+        $(document).ready(function() {
+            /*
+										var defaults = {
+								  			containerID: 'toTop', // fading element id
+											containerHoverID: 'toTopHover', // fading element hover id
+											scrollSpeed: 1200,
+											easingType: 'linear' 
+								 		};
+										*/
+
+            $().UItoTop({
+                easingType: 'easeOutQuart'
+            });
+
+        });
+    </script>
+    <!-- //here ends scrolling icon -->
+    <!-- for bootstrap working -->
+    <script src="js/bootstrap.js"></script>
+    <!-- //for bootstrap working -->
+</body>
+
+</html>
